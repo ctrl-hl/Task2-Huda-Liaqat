@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Student Dashboard</h1>
+
+<div class="row my-4">
+
+<div class="col-md-4">
+    <div class="card p-3 text-center">
+        <h3>{{ total }}</h3>
+        <p>Total Registrations</p>
+    </div>
+</div>
+
+<div class="col-md-4">
+    <div class="card p-3 text-center">
+        <h3>{{ pending }}</h3>
+        <p>Pending Payments</p>
+    </div>
+</div>
+
+<div class="col-md-4">
+    <div class="card p-3 text-center">
+        <h3>{{ approved }}</h3>
+        <p>Approved Payments</p>
+    </div>
+</div>
+
+</div>
+
+<a href="/sports" class="btn btn-primary">Browse Sports</a>
+<a href="/my-registrations" class="btn btn-success">My Registrations</a>
+
+{% endblock %}

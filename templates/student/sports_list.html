@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Available Sports</h1>
+
+<div class="row">
+
+{% for sport in sports %}
+
+<div class="col-md-4 mb-4">
+
+    <div class="card p-3">
+
+        <h3>{{ sport.name }}</h3>
+
+        <p>{{ sport.description }}</p>
+
+        <p><strong>Venue:</strong> {{ sport.venue }}</p>
+
+        <p><strong>Fee:</strong> PKR {{ sport.fee }}</p>
+
+        {% if sport.id in registered_ids %}
+            <span class="badge bg-success">Already Registered</span>
+        {% else %}
+            <a href="/sports/{{ sport.id }}" class="btn btn-primary">
+                Register
+            </a>
+        {% endif %}
+
+    </div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

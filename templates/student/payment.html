@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>JazzCash Payment</h1>
+
+<p><strong>Sport:</strong> {{ registration.sport_name }}</p>
+
+<p><strong>Fee:</strong> PKR {{ registration.fee }}</p>
+
+<img src="{{ url_for('static', filename='images/jazzcash_qr.png') }}"
+     width="250">
+
+<p class="mt-3">
+    Account: 03XX-XXXXXXX | Name: Sports Day Fund
+</p>
+
+<form method="POST">
+
+    <input type="text"
+           name="transaction_id"
+           class="form-control mb-3"
+           placeholder="Enter Transaction ID"
+           required>
+
+    <button class="btn btn-success">
+        Submit Payment Reference
+    </button>
+
+</form>
+
+{% endblock %}

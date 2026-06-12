@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>All Registrations</h1>
+
+<table class="table table-bordered">
+
+<tr>
+    <th>Student</th>
+    <th>Email</th>
+    <th>Sport</th>
+    <th>Fee</th>
+    <th>Transaction ID</th>
+    <th>Status</th>
+    <th>Actions</th>
+</tr>
+
+{% for reg in registrations %}
+<tr>
+    <td>{{ reg.student_name }}</td>
+    <td>{{ reg.email }}</td>
+    <td>{{ reg.sport_name }}</td>
+    <td>{{ reg.fee }}</td>
+    <td>{{ reg.payment_ref }}</td>
+    <td>{{ reg.payment_status }}</td>
+
+    <td>
+
+        <form method="POST"
+              action="/admin/payment/{{ reg.id }}"
+              style="display:inline-block;">
+
+            <input type="hidden" name="status" value="approved">
+
+            <button class="btn btn-success btn-sm">
+                Approve
+            </button>
+
+        </form>
+
+        <form method="POST"
+              action="/admin/payment/{{ reg.id }}"
+              style="display:inline-block;">
+
+            <input type="hidden" name="status" value="rejected">
+
+            <button class="btn btn-danger btn-sm">
+                Reject
+            </button>
+
+        </form>
+
+    </td>
+
+</tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>{{ sport.name }}</h1>
+
+<p>{{ sport.description }}</p>
+
+<p><strong>Rules:</strong></p>
+
+<p>{{ sport.rules }}</p>
+
+<p><strong>Fee:</strong> PKR {{ sport.fee }}</p>
+
+<form method="POST">
+    <button class="btn btn-success">Register Now</button>
+</form>
+
+{% endblock %}

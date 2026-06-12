@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>My Registrations</h1>
+
+<table class="table table-bordered">
+
+<tr>
+    <th>Sport</th>
+    <th>Fee</th>
+    <th>Venue</th>
+    <th>Date</th>
+    <th>Transaction ID</th>
+    <th>Status</th>
+    <th>Action</th>
+</tr>
+
+{% for reg in registrations %}
+<tr>
+    <td>{{ reg.sport_name }}</td>
+    <td>{{ reg.fee }}</td>
+    <td>{{ reg.venue }}</td>
+    <td>{{ reg.event_date }}</td>
+    <td>{{ reg.payment_ref }}</td>
+
+    <td>
+        {% if reg.payment_status == 'pending' %}
+            <span class="badge bg-warning">Pending</span>
+        {% elif reg.payment_status == 'approved' %}
+            <span class="badge bg-success">Approved</span>
+        {% else %}
+            <span class="badge bg-danger">Rejected</span>
+        {% endif %}
+    </td>
+
+    <td>
+        {% if reg.payment_status == 'pending' %}
+        <form method="POST" action="/cancel/{{ reg.id }}">
+            <button class="btn btn-danger btn-sm">Cancel</button>
+        </form>
+        {% endif %}
+    </td>
+
+</tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}

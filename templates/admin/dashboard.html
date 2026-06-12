@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="mb-4">
+    Admin Dashboard
+</h1>
+
+<div class="row mb-4">
+
+    <div class="col-md-3">
+        <div class="dashboard-card">
+            <h2>{{ students }}</h2>
+            <p>Students</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="dashboard-card">
+            <h2>{{ sports }}</h2>
+            <p>Sports</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="dashboard-card">
+            <h2>{{ registrations }}</h2>
+            <p>Registrations</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="dashboard-card">
+            <h2>{{ pending }}</h2>
+            <p>Pending</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="mb-4">
+
+    <a href="/admin/sports"
+       class="btn btn-success">
+        Manage Sports
+    </a>
+
+    <a href="/admin/registrations"
+       class="btn btn-success">
+        View Registrations
+    </a>
+
+</div>
+
+{% endblock %}
